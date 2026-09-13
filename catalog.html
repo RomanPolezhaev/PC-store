@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Каталог компьютерных комплектующих PC Store"
+    />
+
+    <title>Каталог — PC Store</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/catalog.css" />
+  </head>
+
+  <body>
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header">
+      <div class="container header__inner">
+        <a href="index.html" class="logo">
+          <span class="logo__icon">PC</span>
+          <span class="logo__text">STORE</span>
+        </a>
+
+        <nav class="navigation">
+          <a href="index.html" class="navigation__link"> Главная </a>
+
+          <a
+            href="catalog.html"
+            class="navigation__link navigation__link--active"
+          >
+            Каталог
+          </a>
+
+          <a href="index.html#categories" class="navigation__link">
+            Категории
+          </a>
+
+          <a href="index.html#about" class="navigation__link"> О магазине </a>
+        </nav>
+
+        <div class="header__actions">
+          <a href="cart.html" class="header__button">
+            <span>🛒</span>
+            <span class="cart-count">0</span>
+          </a>
+
+          <a href="login.html" class="header__button header__profile">
+            <span>👤</span>
+            <span class="profile-text">Войти</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main>
+      <!-- Заголовок каталога -->
+
+      <section class="catalog-hero">
+        <div class="container">
+          <span class="section-header__label"> PC STORE </span>
+
+          <h1 class="catalog-hero__title">Каталог комплектующих</h1>
+
+          <p class="catalog-hero__description">
+            Найди комплектующие для своего компьютера
+          </p>
+        </div>
+      </section>
+
+      <!-- Каталог -->
+
+      <section class="catalog section">
+        <div class="container">
+          <div class="catalog-layout">
+            <!-- =========================
+                         SIDEBAR
+                    ========================== -->
+
+            <aside class="catalog-sidebar">
+              <div class="filter-block">
+                <h3 class="filter-block__title">Категория</h3>
+
+                <label class="filter-option">
+                  <input type="radio" name="category" value="all" checked />
+
+                  <span>Все товары</span>
+                </label>
+
+                <label class="filter-option">
+                  <input type="radio" name="category" value="processors" />
+
+                  <span>Процессоры</span>
+                </label>
+
+                <label class="filter-option">
+                  <input type="radio" name="category" value="videocards" />
+
+                  <span>Видеокарты</span>
+                </label>
+
+                <label class="filter-option">
+                  <input type="radio" name="category" value="motherboards" />
+
+                  <span>Материнские платы</span>
+                </label>
+
+                <label class="filter-option">
+                  <input type="radio" name="category" value="ram" />
+
+                  <span>Оперативная память</span>
+                </label>
+
+                <label class="filter-option">
+                  <input type="radio" name="category" value="storage" />
+
+                  <span>Накопители</span>
+                </label>
+
+                <label class="filter-option">
+                  <input type="radio" name="category" value="power" />
+
+                  <span>Блоки питания</span>
+                </label>
+              </div>
+
+              <!-- Цена -->
+
+              <div class="filter-block">
+                <h3 class="filter-block__title">Цена</h3>
+
+                <div class="price-inputs">
+                  <input
+                    type="number"
+                    id="min-price"
+                    placeholder="От"
+                    min="0"
+                  />
+
+                  <input
+                    type="number"
+                    id="max-price"
+                    placeholder="До"
+                    min="0"
+                  />
+                </div>
+              </div>
+
+              <button class="filter-reset" id="reset-filters" type="button">
+                Сбросить фильтры
+              </button>
+            </aside>
+
+            <!-- =========================
+                         PRODUCTS
+                    ========================== -->
+
+            <div class="catalog-content">
+              <!-- Верхняя панель -->
+
+              <div class="catalog-toolbar">
+                <div class="search-box">
+                  <span class="search-box__icon"> 🔎 </span>
+
+                  <input
+                    type="search"
+                    id="search-input"
+                    class="search-box__input"
+                    placeholder="Поиск товаров..."
+                  />
+                </div>
+
+                <select id="sort-select" class="sort-select">
+                  <option value="default">Сначала популярные</option>
+
+                  <option value="price-asc">Цена: по возрастанию</option>
+
+                  <option value="price-desc">Цена: по убыванию</option>
+
+                  <option value="name-asc">Название: А-Я</option>
+
+                  <option value="rating">По рейтингу</option>
+                </select>
+              </div>
+
+              <!-- Количество товаров -->
+
+              <div class="catalog-info">
+                <span id="products-count"> Загрузка товаров... </span>
+              </div>
+
+              <!-- Контейнер товаров -->
+
+              <div
+                class="products-grid catalog-products"
+                id="products-container"
+              >
+                <!--
+                                Сюда JavaScript будет
+                                добавлять товары из Firestore.
+                            -->
+
+                <div class="catalog-loading">
+                  <div class="loader"></div>
+
+                  <p>Загрузка товаров...</p>
+                </div>
+              </div>
+
+              <!-- Пагинация -->
+
+              <div class="pagination" id="pagination">
+                <button class="pagination__button" id="prev-page" type="button">
+                  ←
+                </button>
+
+                <span class="pagination__current" id="current-page"> 1 </span>
+
+                <button class="pagination__button" id="next-page" type="button">
+                  →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <a href="index.html" class="logo">
+            <span class="logo__icon"> PC </span>
+
+            <span class="logo__text"> STORE </span>
+          </a>
+
+          <p>Комплектующие для компьютеров в одном месте.</p>
+        </div>
+
+        <div class="footer__links">
+          <div>
+            <h3>Магазин</h3>
+
+            <a href="catalog.html"> Каталог </a>
+
+            <a href="cart.html"> Корзина </a>
+          </div>
+
+          <div>
+            <h3>Пользователь</h3>
+
+            <a href="login.html"> Войти </a>
+
+            <a href="register.html"> Регистрация </a>
+
+            <a href="profile.html"> Личный кабинет </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <div class="container">
+          <p>© 2026 PC Store. Учебный проект.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+
+    <script type="module" src="js/catalog.js"></script>
+  </body>
+</html>

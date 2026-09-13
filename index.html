@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="PC Store — интернет-магазин компьютерных комплектующих"
+    />
+
+    <title>PC Store — комплектующие для ПК</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- Шапка сайта -->
+    <header class="header">
+      <div class="container header__inner">
+        <!-- Логотип -->
+        <a href="index.html" class="logo">
+          <span class="logo__icon">PC</span>
+          <span class="logo__text">STORE</span>
+        </a>
+
+        <!-- Навигация -->
+        <nav class="navigation">
+          <a
+            href="index.html"
+            class="navigation__link navigation__link--active"
+          >
+            Главная
+          </a>
+
+          <a href="catalog.html" class="navigation__link"> Каталог </a>
+
+          <a href="#categories" class="navigation__link"> Категории </a>
+
+          <a href="#about" class="navigation__link"> О магазине </a>
+        </nav>
+
+        <!-- Действия пользователя -->
+        <div class="header__actions">
+          <a href="cart.html" class="header__button">
+            <span>🛒</span>
+            <span class="cart-count">0</span>
+          </a>
+
+          <a href="login.html" class="header__button header__profile">
+            <span>👤</span>
+            <span class="profile-text">Войти</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero-блок -->
+      <section class="hero">
+        <div class="container hero__inner">
+          <div class="hero__content">
+            <span class="hero__badge"> НОВОЕ ПОКОЛЕНИЕ ПК </span>
+
+            <h1 class="hero__title">
+              Собери компьютер
+              <span>своей мечты</span>
+            </h1>
+
+            <p class="hero__description">
+              Процессоры, видеокарты, оперативная память, накопители и другие
+              комплектующие для мощных игровых и рабочих систем.
+            </p>
+
+            <div class="hero__buttons">
+              <a href="catalog.html" class="button button--primary">
+                Перейти в каталог
+              </a>
+
+              <a href="#categories" class="button button--secondary">
+                Смотреть категории
+              </a>
+            </div>
+          </div>
+
+          <div class="hero__visual">
+            <div class="hero__circle"></div>
+
+            <div class="hero__pc">
+              <div class="pc__screen"></div>
+              <div class="pc__case">
+                <div class="pc__light"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Категории -->
+      <section class="categories section" id="categories">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <span class="section-header__label"> КАТЕГОРИИ </span>
+
+              <h2 class="section-header__title">Выбери комплектующие</h2>
+            </div>
+
+            <a href="catalog.html" class="section-header__link">
+              Весь каталог →
+            </a>
+          </div>
+
+          <div class="categories-grid">
+            <a href="catalog.html?category=processors" class="category-card">
+              <div class="category-card__icon">⚡</div>
+
+              <div>
+                <h3>Процессоры</h3>
+                <p>CPU</p>
+              </div>
+
+              <span class="category-card__arrow">→</span>
+            </a>
+
+            <a href="catalog.html?category=videocards" class="category-card">
+              <div class="category-card__icon">🎮</div>
+
+              <div>
+                <h3>Видеокарты</h3>
+                <p>GPU</p>
+              </div>
+
+              <span class="category-card__arrow">→</span>
+            </a>
+
+            <a href="catalog.html?category=motherboards" class="category-card">
+              <div class="category-card__icon">🔲</div>
+
+              <div>
+                <h3>Материнские платы</h3>
+                <p>Motherboards</p>
+              </div>
+
+              <span class="category-card__arrow">→</span>
+            </a>
+
+            <a href="catalog.html?category=ram" class="category-card">
+              <div class="category-card__icon">🧠</div>
+
+              <div>
+                <h3>Оперативная память</h3>
+                <p>RAM</p>
+              </div>
+
+              <span class="category-card__arrow">→</span>
+            </a>
+
+            <a href="catalog.html?category=storage" class="category-card">
+              <div class="category-card__icon">💾</div>
+
+              <div>
+                <h3>Накопители</h3>
+                <p>SSD / HDD</p>
+              </div>
+
+              <span class="category-card__arrow">→</span>
+            </a>
+
+            <a href="catalog.html?category=power" class="category-card">
+              <div class="category-card__icon">🔌</div>
+
+              <div>
+                <h3>Блоки питания</h3>
+                <p>PSU</p>
+              </div>
+
+              <span class="category-card__arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Популярные товары -->
+      <section class="products section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <span class="section-header__label"> КАТАЛОГ </span>
+
+              <h2 class="section-header__title">Популярные товары</h2>
+            </div>
+
+            <a href="catalog.html" class="section-header__link">
+              Все товары →
+            </a>
+          </div>
+
+          <!--
+                    Позже товары будут загружаться
+                    непосредственно из Firebase Firestore.
+                -->
+
+          <div class="products-grid">
+            <!-- Товар 1 -->
+            <article class="product-card">
+              <div class="product-card__image">
+                <span>GPU</span>
+              </div>
+
+              <div class="product-card__content">
+                <span class="product-card__category"> Видеокарта </span>
+
+                <h3 class="product-card__title">GeForce RTX 4070 SUPER</h3>
+
+                <p class="product-card__description">12 GB GDDR6X</p>
+
+                <div class="product-card__bottom">
+                  <strong class="product-card__price"> 349 990 ₸ </strong>
+
+                  <button class="product-card__button" type="button">🛒</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Товар 2 -->
+            <article class="product-card">
+              <div class="product-card__image">
+                <span>CPU</span>
+              </div>
+
+              <div class="product-card__content">
+                <span class="product-card__category"> Процессор </span>
+
+                <h3 class="product-card__title">AMD Ryzen 7 7800X3D</h3>
+
+                <p class="product-card__description">8 ядер / 16 потоков</p>
+
+                <div class="product-card__bottom">
+                  <strong class="product-card__price"> 189 990 ₸ </strong>
+
+                  <button class="product-card__button" type="button">🛒</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Товар 3 -->
+            <article class="product-card">
+              <div class="product-card__image">
+                <span>RAM</span>
+              </div>
+
+              <div class="product-card__content">
+                <span class="product-card__category"> Оперативная память </span>
+
+                <h3 class="product-card__title">Kingston Fury Beast</h3>
+
+                <p class="product-card__description">32 GB DDR5 6000 MHz</p>
+
+                <div class="product-card__bottom">
+                  <strong class="product-card__price"> 54 990 ₸ </strong>
+
+                  <button class="product-card__button" type="button">🛒</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Товар 4 -->
+            <article class="product-card">
+              <div class="product-card__image">
+                <span>SSD</span>
+              </div>
+
+              <div class="product-card__content">
+                <span class="product-card__category"> Накопитель </span>
+
+                <h3 class="product-card__title">Samsung 990 PRO</h3>
+
+                <p class="product-card__description">2 TB NVMe M.2</p>
+
+                <div class="product-card__bottom">
+                  <strong class="product-card__price"> 119 990 ₸ </strong>
+
+                  <button class="product-card__button" type="button">🛒</button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Преимущества -->
+      <section class="advantages section">
+        <div class="container">
+          <div class="advantages-grid">
+            <div class="advantage">
+              <div class="advantage__icon">🚚</div>
+
+              <div>
+                <h3>Быстрая доставка</h3>
+                <p>Доставим заказ в кратчайшие сроки</p>
+              </div>
+            </div>
+
+            <div class="advantage">
+              <div class="advantage__icon">🛡️</div>
+
+              <div>
+                <h3>Гарантия</h3>
+                <p>Гарантия на все комплектующие</p>
+              </div>
+            </div>
+
+            <div class="advantage">
+              <div class="advantage__icon">💳</div>
+
+              <div>
+                <h3>Безопасная покупка</h3>
+                <p>Удобная и безопасная система заказов</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- О магазине -->
+      <section class="about section" id="about">
+        <div class="container">
+          <div class="about__content">
+            <span class="section-header__label"> PC STORE </span>
+
+            <h2 class="section-header__title">Всё для твоего компьютера</h2>
+
+            <p>
+              PC Store — современный интернет-магазин компьютерных
+              комплектующих. Здесь можно подобрать комплектующие для игрового,
+              рабочего или универсального компьютера.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <a href="index.html" class="logo">
+            <span class="logo__icon">PC</span>
+            <span class="logo__text">STORE</span>
+          </a>
+
+          <p>Комплектующие для компьютеров в одном месте.</p>
+        </div>
+
+        <div class="footer__links">
+          <div>
+            <h3>Магазин</h3>
+
+            <a href="catalog.html"> Каталог </a>
+
+            <a href="cart.html"> Корзина </a>
+          </div>
+
+          <div>
+            <h3>Пользователь</h3>
+
+            <a href="login.html"> Войти </a>
+
+            <a href="register.html"> Регистрация </a>
+
+            <a href="profile.html"> Личный кабинет </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <div class="container">
+          <p>© 2026 PC Store. Учебный проект.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
