@@ -196,7 +196,53 @@ img {
   align-items: center;
   gap: 10px;
 }
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
+.header__auth-button,
+.header__admin-button,
+.header__logout-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 42px;
+
+  padding: 0 15px;
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 10px;
+
+  background: var(--bg-secondary);
+
+  color: var(--text-primary);
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.header__auth-button:hover,
+.header__admin-button:hover,
+.header__logout-button:hover {
+  border-color: var(--primary-color);
+}
+
+.header__admin-button {
+  color: var(--primary-color);
+}
+
+.header__logout-button {
+  font-family: inherit;
+  font-size: 14px;
+}
 .header__button {
   min-width: 42px;
   height: 42px;

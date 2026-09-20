@@ -46,15 +46,11 @@
         </nav>
 
         <div class="header__actions">
-          <a href="cart.html" class="header__button">
-            <span>🛒</span>
-            <span class="cart-count">0</span>
-          </a>
+          <a href="cart.html"> 🛒 <span id="cart-count">0</span> </a>
 
-          <a href="login.html" class="header__button header__profile">
-            <span>👤</span>
-            <span class="profile-text">Войти</span>
-          </a>
+          <div id="auth-container">
+            <a href="login.html" class="header__auth-button"> 👤 Войти </a>
+          </div>
         </div>
       </div>
     </header>
@@ -283,5 +279,6 @@
     <!-- JavaScript -->
 
     <script type="module" src="js/catalog.js"></script>
+    <script type="module" src="js/auth-state.js"></script>
   </body>
 </html>

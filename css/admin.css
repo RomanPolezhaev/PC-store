@@ -1,0 +1,236 @@
+.admin {
+  padding: 50px 0 80px;
+}
+
+.admin__header {
+  margin-bottom: 40px;
+}
+
+.admin__header h1 {
+  margin-bottom: 8px;
+}
+
+.admin__header p {
+  color: var(--text-secondary);
+}
+
+.admin-section {
+  background: var(--bg-secondary);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 16px;
+
+  padding: 30px;
+
+  margin-bottom: 30px;
+}
+
+.admin-section__header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 20px;
+
+  margin-bottom: 30px;
+}
+
+.admin-section__header h2 {
+  margin-bottom: 6px;
+}
+
+.admin-section__header p {
+  color: var(--text-secondary);
+}
+
+.admin-form {
+  margin-bottom: 40px;
+
+  padding: 25px;
+
+  background: var(--bg-primary);
+
+  border-radius: 12px;
+}
+
+.admin-form__grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
+
+  margin-bottom: 25px;
+}
+
+.admin-form__full {
+  grid-column: 1 / -1;
+}
+
+.admin-form input,
+.admin-form select,
+.admin-form textarea {
+  width: 100%;
+
+  padding: 12px 14px;
+
+  margin-top: 8px;
+
+  background: var(--bg-secondary);
+
+  color: var(--text-primary);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 8px;
+
+  font-family: inherit;
+
+  box-sizing: border-box;
+}
+
+.admin-form textarea {
+  resize: vertical;
+}
+
+.admin-form input:focus,
+.admin-form select:focus,
+.admin-form textarea:focus {
+  outline: none;
+
+  border-color: var(--primary-color);
+}
+
+.admin-message {
+  margin-top: 15px;
+
+  min-height: 20px;
+}
+
+.admin-table-wrapper {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  min-width: 700px;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 15px;
+
+  text-align: left;
+
+  border-bottom: 1px solid var(--border-color);
+}
+
+.admin-table th {
+  color: var(--text-secondary);
+
+  font-size: 14px;
+}
+
+.admin-table td {
+  vertical-align: middle;
+}
+
+.admin-actions {
+  display: flex;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
+}
+
+.admin-actions button {
+  padding: 8px 12px;
+
+  border-radius: 7px;
+
+  border: 1px solid var(--border-color);
+
+  background: var(--bg-primary);
+
+  color: var(--text-primary);
+
+  cursor: pointer;
+}
+
+.admin-actions button:hover {
+  border-color: var(--primary-color);
+}
+
+.admin-select {
+  padding: 8px;
+
+  border-radius: 7px;
+
+  border: 1px solid var(--border-color);
+
+  background: var(--bg-primary);
+
+  color: var(--text-primary);
+}
+
+.btn-danger {
+  background: #7f1d1d;
+
+  border: none;
+
+  color: white;
+
+  padding: 9px 13px;
+
+  border-radius: 7px;
+
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background: var(--bg-primary);
+
+  color: var(--text-primary);
+
+  border: 1px solid var(--border-color);
+
+  padding: 10px 15px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .admin {
+    padding: 30px 0 50px;
+  }
+
+  .admin-section {
+    padding: 20px 15px;
+  }
+
+  .admin-form {
+    padding: 15px;
+  }
+
+  .admin-form__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-form__full {
+    grid-column: auto;
+  }
+
+  .admin-section__header {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+}
