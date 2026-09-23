@@ -113,91 +113,183 @@ onAuthStateChanged(auth, async (user) => {
 // ТОВАРЫ — REAL-TIME
 // ============================================
 
+// function subscribeToProducts() {
+//   const productsRef = collection(db, "products");
+
+//   onSnapshot(
+//     productsRef,
+//     (snapshot) => {
+//       productsTable.innerHTML = "";
+
+//       if (snapshot.empty) {
+//         productsTable.innerHTML = `
+//                     <tr>
+//                         <td colspan="5">
+//                             Товаров пока нет.
+//                         </td>
+//                     </tr>
+//                 `;
+
+//         return;
+//       }
+
+//       snapshot.forEach((document) => {
+//         const product = document.data();
+
+//         const row = document.createElement("tr");
+
+//         row.innerHTML = `
+
+//                     <td>
+//                         ${escapeHtml(product.name || "Без названия")}
+//                     </td>
+
+//                     <td>
+//                         ${getCategoryName(product.category)}
+//                     </td>
+
+//                     <td>
+//                         ${formatPrice(product.price)}
+//                     </td>
+
+//                     <td>
+//                         ${product.stock ?? 0}
+//                     </td>
+
+//                     <td>
+
+//                         <div class="admin-actions">
+
+//                             <button
+//                                 data-edit="${document.id}"
+//                             >
+//                                 Изменить
+//                             </button>
+
+//                             <button
+//                                 class="btn-danger"
+//                                 data-delete="${document.id}"
+//                             >
+//                                 Удалить
+//                             </button>
+
+//                         </div>
+
+//                     </td>
+
+//                 `;
+
+//         productsTable.appendChild(row);
+//       });
+
+//       addProductButtonListeners();
+//     },
+//     (error) => {
+//       console.error(error);
+
+//       productsTable.innerHTML = `
+//                 <tr>
+//                     <td colspan="5">
+//                         Не удалось загрузить товары.
+//                     </td>
+//                 </tr>
+//             `;
+//     },
+//   );
+// }
 function subscribeToProducts() {
+  console.log("Запускаем загрузку товаров...");
+
   const productsRef = collection(db, "products");
 
   onSnapshot(
     productsRef,
+
     (snapshot) => {
+      console.log("Firestore получил товары:", snapshot.size);
+
       productsTable.innerHTML = "";
 
       if (snapshot.empty) {
+        console.log("Коллекция products пустая");
+
         productsTable.innerHTML = `
-                    <tr>
-                        <td colspan="5">
-                            Товаров пока нет.
-                        </td>
-                    </tr>
-                `;
+          <tr>
+            <td colspan="5">
+              Товаров пока нет.
+            </td>
+          </tr>
+        `;
 
         return;
       }
 
-      snapshot.forEach((document) => {
-        const product = document.data();
+      snapshot.forEach((productDoc) => {
+        const product = productDoc.data();
+
+        console.log("Найден товар:", productDoc.id, product);
 
         const row = document.createElement("tr");
 
         row.innerHTML = `
+          <td>
+            ${escapeHtml(product.name || "Без названия")}
+          </td>
 
-                    <td>
-                        ${escapeHtml(product.name || "Без названия")}
-                    </td>
+          <td>
+            ${getCategoryName(product.category)}
+          </td>
 
-                    <td>
-                        ${getCategoryName(product.category)}
-                    </td>
+          <td>
+            ${formatPrice(product.price)}
+          </td>
 
-                    <td>
-                        ${formatPrice(product.price)}
-                    </td>
+          <td>
+            ${product.stock ?? 0}
+          </td>
 
-                    <td>
-                        ${product.stock ?? 0}
-                    </td>
+          <td>
+            <div class="admin-actions">
 
-                    <td>
+              <button
+                class="btn btn-primary"
+                data-edit="${productDoc.id}"
+              >
+                Изменить
+              </button>
 
-                        <div class="admin-actions">
+              <button
+                class="btn btn-danger"
+                data-delete="${productDoc.id}"
+              >
+                Удалить
+              </button>
 
-                            <button
-                                data-edit="${document.id}"
-                            >
-                                Изменить
-                            </button>
-
-                            <button
-                                class="btn-danger"
-                                data-delete="${document.id}"
-                            >
-                                Удалить
-                            </button>
-
-                        </div>
-
-                    </td>
-
-                `;
+            </div>
+          </td>
+        `;
 
         productsTable.appendChild(row);
       });
 
+      console.log("Таблица товаров обновлена");
+
       addProductButtonListeners();
     },
+
     (error) => {
-      console.error(error);
+      console.error("ОШИБКА FIRESTORE:", error);
 
       productsTable.innerHTML = `
-                <tr>
-                    <td colspan="5">
-                        Не удалось загрузить товары.
-                    </td>
-                </tr>
-            `;
-    },
+        <tr>
+          <td colspan="5">
+            Ошибка загрузки товаров: ${error.message}
+          </td>
+        </tr>
+      `;
+    }
   );
 }
-
 // ============================================
 // ДОБАВЛЕНИЕ / РЕДАКТИРОВАНИЕ
 // ============================================
@@ -382,10 +474,10 @@ function subscribeToUsers() {
         return;
       }
 
-      snapshot.forEach((document) => {
-        const user = document.data();
+      snapshot.forEach((productDoc) => {
+        const user = productDoc.data();
 
-        const isCurrentUser = document.id === currentUser.uid;
+        const isCurrentUser = productDoc.id === currentUser.uid;
 
         const row = document.createElement("tr");
 
@@ -403,7 +495,7 @@ function subscribeToUsers() {
 
                         <select
                             class="admin-select"
-                            data-role-user="${document.id}"
+                            data-role-user="${productDoc.id}"
                             ${isCurrentUser ? "disabled" : ""}
                         >
 
@@ -429,7 +521,7 @@ function subscribeToUsers() {
 
                         <select
                             class="admin-select"
-                            data-status-user="${document.id}"
+                            data-status-user="${productDoc.id}"
                             ${isCurrentUser ? "disabled" : ""}
                         >
 
@@ -458,7 +550,7 @@ function subscribeToUsers() {
                             ? "Текущий аккаунт"
                             : `
                                     <button
-                                        data-save-user="${document.id}"
+                                        data-save-user="${productDoc.id}"
                                         class="btn btn-primary"
                                     >
                                         Сохранить

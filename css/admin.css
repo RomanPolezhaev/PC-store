@@ -141,7 +141,7 @@
   vertical-align: middle;
 }
 
-.admin-actions {
+/* .admin-actions {
   display: flex;
 
   gap: 8px;
@@ -165,8 +165,37 @@
 
 .admin-actions button:hover {
   border-color: var(--primary-color);
+} */
+.admin-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
+.admin-actions button {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.admin-actions button[data-edit] {
+    background: #2563eb;
+    color: white;
+}
+
+.admin-actions button[data-delete] {
+    background: #dc2626;
+    color: white;
+}
+
+.admin-actions button:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
 .admin-select {
   padding: 8px;
 
