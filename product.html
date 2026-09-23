@@ -1,11 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Товар — PC Store</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/product.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a href="index.html" class="logo"> PC<span>Store</span> </a>
+
+        <nav class="nav">
+          <a href="index.html">Главная</a>
+          <a href="catalog.html">Каталог</a>
+          <a href="index.html#categories">Категории</a>
+          <a href="index.html#about">О магазине</a>
+        </nav>
+
+        <div class="header__actions">
+          <a href="cart.html" class="header__cart">
+            🛒
+            <span id="cart-count">0</span>
+          </a>
+
+          <div id="auth-container">
+            <a href="login.html" class="header__auth-button"> 👤 Войти </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="product-page">
+      <div class="container">
+        <a href="catalog.html" class="product-back"> ← Вернуться в каталог </a>
+
+        <div id="product-container" class="product">
+          <div class="product-loading">Загрузка товара...</div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>© 2026 PC Store</p>
+      </div>
+    </footer>
+
+    <script type="module" src="js/product.js"></script>
+    <script type="module" src="js/auth-state.js"></script>
+    <script type="module" src="js/cart-count.js"></script>
+  </body>
 </html>

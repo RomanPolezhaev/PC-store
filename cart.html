@@ -1,11 +1,104 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Корзина — PC Store</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a href="index.html" class="logo"> PC<span>Store</span> </a>
+
+        <nav class="nav">
+          <a href="index.html"> Главная </a>
+
+          <a href="catalog.html"> Каталог </a>
+
+          <a href="index.html#categories"> Категории </a>
+
+          <a href="index.html#about"> О магазине </a>
+        </nav>
+
+        <div class="header__actions">
+          <a href="cart.html" class="header__cart">
+            🛒
+            <span id="cart-count">0</span>
+          </a>
+
+          <div id="auth-container">
+            <a href="login.html" class="header__auth-button"> 👤 Войти </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="cart-page">
+      <div class="container">
+        <div class="cart-header">
+          <div>
+            <h1>Корзина</h1>
+
+            <p>Проверьте выбранные товары перед оформлением заказа.</p>
+          </div>
+
+          <a href="catalog.html" class="cart-continue">
+            ← Продолжить покупки
+          </a>
+        </div>
+
+        <div class="cart-layout">
+          <section class="cart-items-section">
+            <div id="cart-items" class="cart-items"></div>
+          </section>
+
+          <aside class="cart-summary">
+            <h2>Ваш заказ</h2>
+
+            <div class="summary-row">
+              <span> Товары </span>
+
+              <strong id="cart-total"> 0 ₸ </strong>
+            </div>
+
+            <div class="summary-row">
+              <span> Доставка </span>
+
+              <strong> Бесплатно </strong>
+            </div>
+
+            <div class="summary-divider"></div>
+
+            <div class="summary-total">
+              <span> Итого </span>
+
+              <strong id="cart-total-final"> 0 ₸ </strong>
+            </div>
+
+            <button id="checkout-button" class="checkout-button">
+              Оформить заказ
+            </button>
+
+            <p id="checkout-message" class="checkout-message"></p>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>© 2026 PC Store</p>
+      </div>
+    </footer>
+
+    <script type="module" src="js/cart.js"></script>
+    <script type="module" src="js/auth-state.js"></script>
+    <script type="module" src="js/cart-count.js"></script>
+  </body>
 </html>
